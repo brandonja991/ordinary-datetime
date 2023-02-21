@@ -6,15 +6,15 @@ namespace Ordinary\DateTime;
 
 use DateTimeInterface;
 
-enum DayOfWeek
+enum DayOfWeek: int
 {
-    case Sunday;
-    case Monday;
-    case Tuesday;
-    case Wednesday;
-    case Thursday;
-    case Friday;
-    case Saturday;
+    case Sunday = 0;
+    case Monday = 1;
+    case Tuesday = 2;
+    case Wednesday = 3;
+    case Thursday = 4;
+    case Friday = 5;
+    case Saturday = 6;
 
     public static function tryFromName(string $day): ?self
     {
@@ -32,7 +32,7 @@ enum DayOfWeek
 
     public static function fromDate(DateTimeInterface $dateTime): self
     {
-        return self::fromName($dateTime->format('D'));
+        return self::from((int) $dateTime->format('w'));
     }
 
     public function fullName(): string
