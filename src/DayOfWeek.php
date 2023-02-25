@@ -45,19 +45,6 @@ enum DayOfWeek: int
         return substr($this->fullName(), 0, 3);
     }
 
-    public function dayNumber(): int
-    {
-        return match ($this) {
-            self::Sunday => 0,
-            self::Monday => 1,
-            self::Tuesday => 2,
-            self::Wednesday => 3,
-            self::Thursday => 4,
-            self::Friday => 5,
-            self::Saturday => 6,
-        };
-    }
-
     public function iso8601DayNumber(): int
     {
         return match ($this) {
