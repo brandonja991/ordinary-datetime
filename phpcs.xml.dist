@@ -110,7 +110,12 @@
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowEmpty" />
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison" />
     <rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit" />
-    <rule ref="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing" />
+    <rule ref="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing">
+        <properties>
+            <property name="linesCountAfterWhenLastInLastCaseOrDefault" value="0" />
+            <property name="linesCountAfterWhenLastInCaseOrDefault" value="1" />
+        </properties>
+    </rule>
     <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses" />
     <rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses" />
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator" />
