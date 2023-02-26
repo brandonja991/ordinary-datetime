@@ -76,4 +76,24 @@ enum DayOfWeek: int
             self::Saturday => self::Friday,
         };
     }
+
+    public function daysUntil(DayOfWeek $dayOfWeek): int
+    {
+        $currentDay = $this->value;
+        $targetDay = $dayOfWeek->value;
+
+        return $currentDay <= $targetDay
+            ? $targetDay - $currentDay
+            : 6 - $currentDay + $targetDay + 1;
+    }
+
+    public function daysSince(DayOfWeek $dayOfWeek): int
+    {
+        $currentDay = $this->value;
+        $targetDay = $dayOfWeek->value;
+
+        return $targetDay <= $currentDay
+            ? $currentDay - $targetDay
+            : 6 - $targetDay + $currentDay + 1;
+    }
 }
