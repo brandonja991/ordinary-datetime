@@ -155,20 +155,20 @@ class TimeModifiersTest extends TestCase
     /** @dataProvider monthProvider */
     public function testEndOfMonth(Month $month): void
     {
-        self::assertEndOfMonth((new DateTimeImmutable())->overrideDate(month: $month->value)->endOfMonth());
+        self::assertEndOfMonth((new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->endOfMonth());
     }
 
     /** @dataProvider monthProvider */
     public function testEndOfQuarter(Month $month): void
     {
-        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value)->endOfQuarter();
+        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->endOfQuarter();
         self::assertEndOfQuarter($dateTime);
     }
 
     /** @dataProvider monthProvider */
     public function testEndOfSemester(Month $month): void
     {
-        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value)->endOfSemester();
+        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->endOfSemester();
         self::assertEndOfSemester($dateTime);
     }
 
@@ -212,20 +212,20 @@ class TimeModifiersTest extends TestCase
     /** @dataProvider monthProvider */
     public function testStartOfMonth(Month $month): void
     {
-        self::assertStartOfMonth((new DateTimeImmutable())->overrideDate(month: $month->value)->startOfMonth());
+        self::assertStartOfMonth((new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->startOfMonth());
     }
 
     /** @dataProvider monthProvider */
     public function testStartOfQuarter(Month $month): void
     {
-        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value)->startOfQuarter();
+        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->startOfQuarter();
         self::assertStartOfQuarter($dateTime);
     }
 
     /** @dataProvider monthProvider */
     public function testStartOfSemester(Month $month): void
     {
-        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value)->startOfSemester();
+        $dateTime = (new DateTimeImmutable())->overrideDate(month: $month->value, day: 1)->startOfSemester();
         self::assertStartOfSemester($dateTime);
     }
 

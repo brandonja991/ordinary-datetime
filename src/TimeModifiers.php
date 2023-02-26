@@ -121,12 +121,12 @@ trait TimeModifiers
 
     public function endOfQuarter(): DateTimeImmutable
     {
-        return $this->overrideDate(month: $this->monthEnum()->endOfQuarter()->value)->endOfMonth();
+        return $this->overrideDate(month: $this->monthEnum()->endOfQuarter()->value, day: 1)->endOfMonth();
     }
 
     public function endOfSemester(): DateTimeImmutable
     {
-        return $this->overrideDate(month: $this->monthEnum()->endOfSemester()->value)->endOfMonth();
+        return $this->overrideDate(month: $this->monthEnum()->endOfSemester()->value, day: 1)->endOfMonth();
     }
 
     public function endOfYear(): DateTimeImmutable
