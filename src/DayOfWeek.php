@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Ordinary\DateTime;
 
-use DateTimeInterface;
-
 enum DayOfWeek: int
 {
     case Sunday = 0;
@@ -28,11 +26,6 @@ enum DayOfWeek: int
     {
         return self::tryFromName($day)
             ?? throw new UnexpectedValueException('Could not create day of week from string: ' . $day);
-    }
-
-    public static function fromDate(DateTimeInterface $dateTime): self
-    {
-        return self::from((int) $dateTime->format('w'));
     }
 
     public function fullName(): string
