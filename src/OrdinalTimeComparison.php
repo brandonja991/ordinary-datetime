@@ -31,4 +31,10 @@ trait OrdinalTimeComparison
     {
         return $this <= $dateTime;
     }
+
+    public function isAt(DateTimeInterface $dateTime): bool
+    {
+        // phpcs:ignore SlevomatCodingStandard.Operators.DisallowEqualOperators.DisallowedEqualOperator
+        return $this == $dateTime;
+    }
 }

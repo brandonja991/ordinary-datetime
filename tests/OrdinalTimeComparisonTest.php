@@ -43,6 +43,9 @@ class OrdinalTimeComparisonTest extends TestCase
                 self::assertFalse($b->isBefore($a));
                 self::assertFalse($b->isAtOrBefore($a));
 
+                self::assertFalse($a->isAt($b));
+                self::assertFalse($b->isAt($a));
+
                 break;
 
             case 0:
@@ -55,6 +58,9 @@ class OrdinalTimeComparisonTest extends TestCase
                 self::assertTrue($b->isAtOrBefore($a));
                 self::assertTrue($a->isAtOrAfter($b));
                 self::assertTrue($b->isAtOrAfter($a));
+
+                self::assertTrue($a->isAt($b));
+                self::assertTrue($b->isAt($a));
 
                 break;
 
