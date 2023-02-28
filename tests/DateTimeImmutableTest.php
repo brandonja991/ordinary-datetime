@@ -142,4 +142,28 @@ class DateTimeImmutableTest extends TestCase
         self::assertSame($second ?? $og->second(), $test->second());
         self::assertSame($microsecond ?? $og->microsecond(), $test->microsecond());
     }
+
+    public function testEarliest(): void
+    {
+        $obj = DateTimeImmutable::earliest();
+        self::assertSame(0, $obj->year());
+        self::assertSame(1, $obj->month());
+        self::assertSame(1, $obj->day());
+        self::assertSame(0, $obj->hour());
+        self::assertSame(0, $obj->minute());
+        self::assertSame(0, $obj->second());
+        self::assertSame(0, $obj->microsecond());
+    }
+
+    public function testLatest(): void
+    {
+        $obj = DateTimeImmutable::latest();
+        self::assertSame(9999, $obj->year());
+        self::assertSame(12, $obj->month());
+        self::assertSame(31, $obj->day());
+        self::assertSame(TimeUnit::Hour->max(), $obj->hour());
+        self::assertSame(TimeUnit::Minute->max(), $obj->minute());
+        self::assertSame(TimeUnit::Second->max(), $obj->second());
+        self::assertSame(TimeUnit::Microsecond->max(), $obj->microsecond());
+    }
 }

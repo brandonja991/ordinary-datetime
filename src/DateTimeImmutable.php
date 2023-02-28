@@ -6,6 +6,7 @@ namespace Ordinary\DateTime;
 
 use DateTimeImmutable as PHPDateTimeImmutable;
 use DateTimeInterface;
+use DateTimeZone;
 use Exception;
 
 class DateTimeImmutable extends PHPDateTimeImmutable
@@ -23,6 +24,16 @@ class DateTimeImmutable extends PHPDateTimeImmutable
             : self::createFromInterface($dateTime);
 
         return $result;
+    }
+
+    public static function earliest(?DateTimeZone $timeZone = null): self
+    {
+        return new self('0000-01-01T00:00:00', $timeZone);
+    }
+
+    public static function latest(?DateTimeZone $timeZone = null): self
+    {
+        return new self('9999-12-31T23:59:59.999999', $timeZone);
     }
 
     /**
